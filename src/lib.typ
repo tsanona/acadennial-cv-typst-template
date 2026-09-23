@@ -92,7 +92,11 @@
   set page(
     paper: paper,
     margin: margin,
-    footer: context { align(center)[#text(size: 0.9em)[#counter(page).display("1")]] },
+    footer: context {
+      if counter(page).final().first() > 1 {
+        align(center)[#text(size: 0.9em)[#counter(page).display("1")]]
+      }
+    },
   )
 
   set par(
